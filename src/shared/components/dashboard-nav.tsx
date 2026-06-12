@@ -2,19 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Activity, BarChart3, RadioTower, TrendingUp } from "lucide-react";
 import { navigationItems } from "@/shared/constants/navigation";
 import { cn } from "@/lib/cn";
-
-const icons = [RadioTower, BarChart3, TrendingUp, Activity];
 
 export function DashboardNav() {
   const pathname = usePathname();
 
   return (
     <nav className="flex flex-wrap items-center gap-2">
-      {navigationItems.map((item, index) => {
-        const Icon = icons[index];
+      {navigationItems.map((item) => {
+        const Icon = item.icon;
         const active = pathname === item.href;
 
         return (
